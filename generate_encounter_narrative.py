@@ -685,9 +685,9 @@ class ImagingStudyProfile(BaseModel):
         )
 
 
-#################
+###################
 # DSPy Signatures #
-#################
+###################
 
 
 class PatientProfileNarrator(dspy.Signature):
