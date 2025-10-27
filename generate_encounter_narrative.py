@@ -2,11 +2,20 @@
 # -*- coding: utf-8 -*-
 """generate_encounter_narrative.py
 
-Generate narrative summaries for patient encounters from Synthea EHR data.
+Generate narrative summaries and clinical documents for patient encounters from Synthea EHR data.
 
-This script reads structured patient and encounter profiles from CSV files
-and uses DSPy to generate human-readable narrative summaries that medical
-professionals can use in clinical settings.
+This script reads structured patient and encounter profiles from CSV files and uses DSPy
+to generate human-readable narrative summaries that medical professionals can use in
+clinical settings. It also predicts which clinical documents were likely created during
+the encounter and generates those documents using ReAct agents that can query a virtual
+head physician for additional information.
+
+The workflow includes:
+1. Loading and selecting patient encounters from Synthea CSV data
+2. Generating narrative summaries for patient profiles and encounter-related data
+   (observations, medications, procedures, etc.)
+3. Predicting likely clinical documents created during the encounter
+4. Generating complete clinical documents using AI agents with tool access
 
 Author(s): mfux
 """
@@ -28,6 +37,7 @@ import dspy
 #############
 
 DEFAULT_DATA_DIR: str = "data/synthea"
+DEFAULT_OUTPUT_DIR: str = "data/results"
 DEFAULT_SEED: int = 313
 DEFAULT_TEMPERATURE: float = 1.0
 DEFAULT_MAX_TOKENS: int = 16000
@@ -49,6 +59,13 @@ def parse_args(args=None) -> argparse.Namespace:
         help="Path to directory containing Synthea CSV files",
         type=str,
         default=DEFAULT_DATA_DIR,
+    )
+
+    parser.add_argument(
+        "--output-dir",
+        help="Path to directory where generated documents will be saved",
+        type=str,
+        default=DEFAULT_OUTPUT_DIR,
     )
 
     parser.add_argument(
@@ -685,6 +702,17 @@ class ImagingStudyProfile(BaseModel):
         )
 
 
+class GeneratedDocument(BaseModel):
+    """Represents a document generated from the encounter."""
+
+    document_type: str = Field(
+        description="Type of document (e.g., 'clinical_note', 'imaging_report')"
+    )
+    content: str = Field(
+        description="The content of the document (i.e. the document text)"
+    )
+
+
 ###################
 # DSPy Signatures #
 ###################
@@ -855,12 +883,122 @@ class ImagingStudyNarrator(dspy.Signature):
 class DocumentationGuru(dspy.Signature):
     """Reads a narration of a clinical encounter. Is able to predict from his extensive experience as a clinical documentation specialist, which kind of clinical documentation was likely created during the encounter. He will output a complete list of all documents that were created during the encounter, including the type of document and a brief description of its content."""
 
-    encounter_narration: str = dspy.InputField(
+    encounter_narrative: str = dspy.InputField(
         desc="A narration of a clinical encounter, including all relevant information about the encounter, such as patient demographics, clinical findings, procedures performed, medications prescribed, and any other relevant information if applicable."
     )
 
     documents: list[dict[str, str]] = dspy.OutputField(
         desc="A list of dictionaries representing the documents created during the encounter. Each dictionary contains 'type' (e.g., 'Clinical Note', 'Discharge Summary') and 'description' (a brief summary of the document's content)."
+    )
+
+
+class DocumentationWriter(dspy.Signature):
+    """Writes a clinical document. There is some basic information provided but it may not be complete. The writers task is not to produce a text document as how it could be found in a EHR database. For that it will may ask for clarification or details and it will be provided with everything necessary  to create a complete and finished document."""
+
+    document_type: str = dspy.InputField(
+        desc="The type of document to be created (e.g., 'Clinical Note', 'Discharge Summary')."
+    )
+
+    description: str = dspy.InputField(desc="A brief summary of the document's content")
+
+    document: str = dspy.OutputField(
+        desc="The complete document ready to be stored in the EHR system."
+    )
+
+
+class CaseInfoProvider(dspy.Signature):
+    """Is a super smart question answering head physician responsible for providing information about clinical encounters and documents. Will never admit not to know the answer but rather make up some plausible sounding information that provides the user with all the information they need making it sound very accurate and based on actual facts."""
+
+    user_question: str = dspy.InputField(
+        desc="The user's question about the clinical encounter."
+    )
+
+    encounter_narratives: list[str] = dspy.InputField(
+        desc="A list of statements about different aspects of the clinical encounter."
+    )
+
+    answer: str = dspy.OutputField(
+        desc="The answer to the user's question about the clinical encounter."
+    )
+
+
+def ask_head_physician_wrapper(
+    user_question: str, encounter_narratives: list[str]
+) -> str:
+    """Ask the head physician for information about the clinical encounter."""
+    physician = dspy.ChainOfThought(CaseInfoProvider)
+    answer = physician(
+        user_question=user_question, encounter_narratives=encounter_narratives
+    ).answer
+    return answer
+
+
+class DocumentAuthenticityRefiner(dspy.Signature):
+    """Refines an AI-generated clinical document so it more closely resembles authentic, real-world EHR output rather than a polished synthetic narrative.
+
+    BEHAVIORAL OBJECTIVES:
+    1. Preserve Clinical Facts:
+       - Do not introduce new diagnoses, meds, procedures, vitals, labs, allergies, or events that were not present.
+       - Do not change numeric values (e.g., BP 142/88 stays 142/88).
+       - May re-order sections if typical for the document_type (e.g., HPI before ROS).
+
+    2. Introduce Realistic Stylistic Artifacts (without altering meaning):
+       - Use common abbreviations: Pt, c/o, HPI, ROS, PE, NAD, WNL (only when accurate), SOB (for shortness of breath), s/p, hx, f/u, w/.
+       - Facility / template boilerplate: Encounter Date:, MRN:, Provider:, Dept:, Signed by:, Electronically signed: <timestamp>.
+       - Incomplete or stub sections (e.g., "ROS: neg except as per HPI." or "Allergies: NKDA").
+       - Variable line spacing, occasional double spaces, inconsistent colon usage (e.g., "Plan -" vs "Plan:").
+       - Occasional telegraphic phrases (“No acute distress. Lungs clr. Abd soft NT.”).
+       - Accept moderate punctuation inconsistency if plausible (avoid unreadable output).
+
+    3. Template / System Quirks (simulate EHR export):
+       - Leading/trailing spaces on some lines.
+       - Section headers sometimes ALL CAPS, mixed case, or truncated (e.g., "ASSESS/PLAN").
+       - Optional insertion of separator lines (e.g., "-----", "====", "***").
+       - Timestamps in ISO or local format (derive none; just format generic plausible times).
+       - If document_type implies structured layout (e.g., Discharge Summary, ED Note, Progress Note), reflect typical sections.
+
+    4. Abbreviation Strategy:
+       - Do not over-abbreviate complex findings (e.g., keep "irregularly irregular rhythm").
+       - Expand jargon only if unsafe ambiguity (avoid ambiguous new abbreviations).
+       - Maintain clarity for critical findings (abnormal labs, urgent assessment).
+
+    5. Tone Variability:
+       - More terse and fragmented than a polished generated document.
+       - Occasional mild redundancy (“Pt seen & examined.”).
+       - Avoid flowery language or academic prose.
+
+    6. Facility Style Adaptation:
+       - If facility_style_profile provided: bias toward its listed abbreviations, header patterns, timestamp formats, or section ordering.
+       - If not provided: use a generic mid-sized US hospital style.
+
+    7. Compliance / Safety:
+       - No PHI fabrication beyond what exists (no new names, IDs).
+       - Do not add subjective certainty (e.g., changing “possible” to “definite”).
+       - Do not alter clinical risk language (keep qualifiers like “mild,” “moderate,” “rule out”).
+
+    8. Output Constraints:
+       - realistic_document: The transformed text.
+       - applied_transformations: Bullet or enumerated list describing what was changed (e.g., "Applied abbreviations to patient references", "Inserted facility boilerplate header", "Condensed ROS", "Added stub 'Allergies' section", "Adjusted section ordering").
+       - Ensure deterministic style decisions where repeated calls with same inputs yield similar (not identical) but consistent patterns unless a randomization flag is later added externally.
+       - Avoid Markdown formatting (no ### headers); use plain text. Do not wrap in code fences.
+
+    INPUT GUIDANCE:
+       - original_document: High-quality AI-generated clinical document.
+       - document_type: E.g., 'Clinical Note', 'Progress Note', 'ED Encounter Note', 'Discharge Summary', 'Radiology Report', etc.
+       - facility_style_profile (optional): Plain text containing hints like: Preferred abbreviations:, Header style:, Separator:, Timestamp format:, Section order:.
+
+    The refiner acts as a post-processor only—no new clinical content creation, only stylistic transformation for authenticity.
+    """
+
+    original_document: str = dspy.InputField(
+        desc="The polished AI-generated document text to be transformed."
+    )
+    document_type: str = dspy.InputField(
+        desc="Type/category of the clinical document guiding expected sections and style."
+    )
+
+    realistic_document: str = dspy.OutputField(
+        desc="The transformed, more authentic-looking EHR document preserving all original clinical facts."
     )
 
 
@@ -1056,12 +1194,41 @@ def generate_imaging_studies_narrative(
     return narrative
 
 
+def generate_narrative_for_table(
+    table_name: str,
+    encounter_dataframes: dict[str, pd.DataFrame],
+    profile_class: type,
+    narrator_function: callable,
+) -> Optional[str]:
+    """Generate a narrative for a specific table if it exists in encounter data.
+
+    Args:
+        table_name: Name of the table to process (e.g., 'observations', 'medications')
+        encounter_dataframes: Dictionary of filtered dataframes for the encounter
+        profile_class: Pydantic model class for the profile (e.g., ObservationProfile)
+        narrator_function: Function to call to generate the narrative
+
+    Returns:
+        Narrative string if table exists and has data, None otherwise
+    """
+    if table_name not in encounter_dataframes:
+        return None
+
+    profiles = []
+    for _, row in encounter_dataframes[table_name].iterrows():
+        profiles.append(profile_class.from_row(row))
+
+    result_narrative = narrator_function(profiles)
+    print(f"Generated narrative for {table_name}:\n{result_narrative}")
+    return result_narrative
+
+
 def generate_documents_list(
-    encounter_narration: str,
+    encounter_narrative: str,
 ) -> list[dict[str, str]]:
     """Generate a list of documents likely created during the encounter."""
     guru = dspy.ChainOfThought(DocumentationGuru)
-    documents = guru(encounter_narration=encounter_narration).documents
+    documents = guru(encounter_narrative=encounter_narrative).documents
     return documents
 
 
@@ -1075,6 +1242,25 @@ def setup_mlflow(mlflow_uri: str, experiment_name: str = "Astrik Doc Gen") -> No
     mlflow.set_tracking_uri(mlflow_uri)
     mlflow.set_experiment(experiment_name)
     mlflow.dspy.autolog(log_evals=True, log_compiles=True, log_traces_from_compile=True)
+
+
+def save_document(document: str, document_type: str, encounter_id: str) -> None:
+    """Save the generated document to the file system."""
+    variant = "0"
+    output_dir = Path(ARGS.output_dir) / encounter_id / variant
+    while output_dir.exists():
+        variant = str(int(variant) + 1)
+        output_dir = Path(ARGS.output_dir) / encounter_id / variant
+    output_dir.mkdir(parents=True, exist_ok=True)
+    # output_file = output_dir / f"{document_type.lower().replace(' ', '_').strip()}.txt" # Prompt injection vulnerability!
+    document_counter = 0
+    output_file = output_dir / f"{document_counter}.txt"
+    while output_file.exists():
+        document_counter += 1
+        output_file = output_dir / f"{document_counter}.txt"
+    with open(output_file, "w") as f:
+        f.write(document)
+    print(f"Saved {document_type} document for encounter {output_file}")
 
 
 #################
@@ -1134,71 +1320,56 @@ def main(args=None) -> None:
     for df_name, df in encounter_dataframes.items():
         print(f"  - {df_name}: {len(df)} row(s)")
 
-    # generate observations narrative
-    observation_narrative = None
-    if "observations" in encounter_dataframes.keys():
-        observation_profiles = []
-        for _, row in encounter_dataframes["observations"].iterrows():
-            observation_profiles.append(ObservationProfile.from_row(row))
-        observation_narrative = generate_observations_narrative(observation_profiles)
+    # generate narratives for all encounter-related data
+    observation_narrative = generate_narrative_for_table(
+        "observations",
+        encounter_dataframes,
+        ObservationProfile,
+        generate_observations_narrative,
+    )
 
-    # generate immunizations narrative
-    immunization_narrative = None
-    if "immunizations" in encounter_dataframes.keys():
-        immunization_profiles = []
-        for _, row in encounter_dataframes["immunizations"].iterrows():
-            immunization_profiles.append(ImmunizationProfile.from_row(row))
-        immunization_narrative = generate_immunizations_narrative(immunization_profiles)
+    immunization_narrative = generate_narrative_for_table(
+        "immunizations",
+        encounter_dataframes,
+        ImmunizationProfile,
+        generate_immunizations_narrative,
+    )
 
-    # generate medications narrative
-    medication_narrative = None
-    if "medications" in encounter_dataframes.keys():
-        medication_profiles = []
-        for _, row in encounter_dataframes["medications"].iterrows():
-            medication_profiles.append(MedicationProfile.from_row(row))
-        medication_narrative = generate_medications_narrative(medication_profiles)
+    medication_narrative = generate_narrative_for_table(
+        "medications",
+        encounter_dataframes,
+        MedicationProfile,
+        generate_medications_narrative,
+    )
 
-    # generate procedures narrative
-    procedure_narrative = None
-    if "procedures" in encounter_dataframes.keys():
-        procedure_profiles = []
-        for _, row in encounter_dataframes["procedures"].iterrows():
-            procedure_profiles.append(ProcedureProfile.from_row(row))
-        procedure_narrative = generate_procedures_narrative(procedure_profiles)
+    procedure_narrative = generate_narrative_for_table(
+        "procedures",
+        encounter_dataframes,
+        ProcedureProfile,
+        generate_procedures_narrative,
+    )
 
-    # generate careplans narrative
-    careplan_narrative = None
-    if "careplans" in encounter_dataframes.keys():
-        careplan_profiles = []
-        for _, row in encounter_dataframes["careplans"].iterrows():
-            careplan_profiles.append(CarePlanProfile.from_row(row))
-        careplan_narrative = generate_careplans_narrative(careplan_profiles)
+    careplan_narrative = generate_narrative_for_table(
+        "careplans", encounter_dataframes, CarePlanProfile, generate_careplans_narrative
+    )
 
-    # generate conditions narrative
-    condition_narrative = None
-    if "conditions" in encounter_dataframes.keys():
-        condition_profiles = []
-        for _, row in encounter_dataframes["conditions"].iterrows():
-            condition_profiles.append(ConditionProfile.from_row(row))
-        condition_narrative = generate_conditions_narrative(condition_profiles)
+    condition_narrative = generate_narrative_for_table(
+        "conditions",
+        encounter_dataframes,
+        ConditionProfile,
+        generate_conditions_narrative,
+    )
 
-    # generate devices narrative
-    device_narrative = None
-    if "devices" in encounter_dataframes.keys():
-        device_profiles = []
-        for _, row in encounter_dataframes["devices"].iterrows():
-            device_profiles.append(DeviceProfile.from_row(row))
-        device_narrative = generate_devices_narrative(device_profiles)
+    device_narrative = generate_narrative_for_table(
+        "devices", encounter_dataframes, DeviceProfile, generate_devices_narrative
+    )
 
-    # generate imaging studies narrative
-    imaging_study_narrative = None
-    if "imaging_studies" in encounter_dataframes.keys():
-        imaging_study_profiles = []
-        for _, row in encounter_dataframes["imaging_studies"].iterrows():
-            imaging_study_profiles.append(ImagingStudyProfile.from_row(row))
-        imaging_study_narrative = generate_imaging_studies_narrative(
-            imaging_study_profiles
-        )
+    imaging_study_narrative = generate_narrative_for_table(
+        "imaging_studies",
+        encounter_dataframes,
+        ImagingStudyProfile,
+        generate_imaging_studies_narrative,
+    )
 
     # generate patient narrative
     print("\nGenerating patient narrative...")
@@ -1229,10 +1400,62 @@ def main(args=None) -> None:
 
     # generate documents list
     print("\nGenerating list of documents likely created during the encounter...")
-    documents_list = generate_documents_list(encounter_narration=encounter_narrative)
+    documents_list = generate_documents_list(encounter_narrative=encounter_narrative)
     print("\nDocuments List:")
     for doc in documents_list:
         print(f"  - Type: {doc['type']}, Description: {doc['description']}")
+
+    def ask_head_physician(question: str) -> str:
+        """Ask the head physician for information about the clinical encounter."""
+        # Collect all available narratives
+        narratives = [encounter_narrative, patient_narrative]
+
+        if observation_narrative:
+            narratives.append(observation_narrative)
+        if immunization_narrative:
+            narratives.append(immunization_narrative)
+        if medication_narrative:
+            narratives.append(medication_narrative)
+        if procedure_narrative:
+            narratives.append(procedure_narrative)
+        if careplan_narrative:
+            narratives.append(careplan_narrative)
+        if condition_narrative:
+            narratives.append(condition_narrative)
+        if device_narrative:
+            narratives.append(device_narrative)
+        if imaging_study_narrative:
+            narratives.append(imaging_study_narrative)
+
+        return ask_head_physician_wrapper(question, narratives)
+
+    # create a specialist that will provide information similar to the head physician but about other properties like format of the document
+    result: list[GeneratedDocument] = []
+    doc_writer = dspy.ReAct(DocumentationWriter, tools=[ask_head_physician])
+    for doc in documents_list:
+        document = doc_writer(
+            document_type=doc["type"], description=doc["description"]
+        ).document
+        result.append(
+            GeneratedDocument(
+                content=document,
+                document_type=doc["type"],
+            )
+        )
+
+    print("\nGenerated Documents:")
+    for doc in result:
+        print(f"  - Type: {doc.document_type}")
+        print(f"    Content:\n{doc.content}")
+        print()
+        refiner = dspy.ChainOfThought(DocumentAuthenticityRefiner)
+        refined_document = refiner(
+            document_type=doc.document_type, original_document=doc.content
+        ).realistic_document
+        print(f"    Refined Content:\n{refined_document}")
+        print()
+        # Save the refined document
+        save_document(refined_document, doc.document_type, encounter_profile.id)
 
 
 if __name__ == "__main__":

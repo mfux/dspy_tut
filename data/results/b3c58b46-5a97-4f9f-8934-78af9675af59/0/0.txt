@@ -1,0 +1,38 @@
+Clinical Note
+
+-----------------------------------------------------
+Patient: Mr. Wilber Schinner  
+Encounter Date: 02/17/2012  
+MRN: [Redacted]  
+Provider: Dr. [Physician's Name]  
+Dept: Cardiology  
+Signed by: Provider  
+-----------------------------------------------------
+
+**SUBJECT:** Telemed Consult for CHF Mgmt
+
+**CC:**  
+F/u chronic CHF mgmt.
+
+**HPI:**  
+Pt participated in a telemed consult. Reports adherence to tx regimen; lifestyle mods ongoing.
+
+**VITALS:**  
+BP 122/72 .
+
+**A/P:**  
+- BP controlled, no new sx, no acute decompensation.  
+- Plan - Continue CHF meds.  
+- Maintain activity; sodium restrictions.  
+- F/u in 3 mos or prn sx change.
+
+**EDUCATION:**  
+Pt educated on med/lifestyle adherence. Emphasis on sx recognition needing urgent attention.
+
+**NEXT F/U:**  
+Telemed scheduled for 5/17/2012.
+
+**SIGNED:**  
+Dr. [Physician's Name]  
+Electronically signed: 02/17/2012 15:45  
+-----------------------------------------------------
