@@ -13,12 +13,16 @@ The Generation may be executed via "05_generation_runs.ipynb" or directly via co
 
 #### MLFlow
 
-Deactivate mlflow by passing `--no-mlflow` to the execution or run mlflow for tracing lm calls:
+MlFlow is used for development and evaluation.  
+Deactivate mlflow by passing `--no-mlflow` to the execution  
 
-##### Run MlFlow
+Or run mlflow for tracing lm calls:
 
 ```sh
 cd mlflow
 docker compose up
 ```
+
+and access  
+`localhost:5000`
 
