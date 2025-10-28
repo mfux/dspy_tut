@@ -1,0 +1,17 @@
+**Screening Outcome for Mrs. Adams**  
+**Encounter Date:** [Insert Date]  
+**MRN:** [Insert MRN]  
+**Provider:** [Insert Provider Name]  
+**Dept:** Postnatal Care  
+
+**Pt Info:**  
+- Name: Mrs. Adams  
+
+**SCREENING DETAILS:**  
+Mrs. Adams c/o depression screening as part of postnatal care eval. Scores not specified; addressing mental health needs noted.
+
+**RECOMMENDATIONS:**  
+F/u mental health support may be indicated, incl. counseling or support groups for management of mental health.
+
+**CONCLUSION:**  
+Holistic approach prioritizes Mrs. Adams & newborn's health. Emphasis on available support for her mental health.

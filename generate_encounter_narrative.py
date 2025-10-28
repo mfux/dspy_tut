@@ -1258,8 +1258,7 @@ def save_document(document: str, document_type: str, encounter_id: str) -> None:
     while output_file.exists():
         document_counter += 1
         output_file = output_dir / f"{document_counter}.txt"
-    with open(output_file, "w") as f:
-        f.write(document)
+    output_file.write_text(document, encoding="utf-8")
     print(f"Saved {document_type} document for encounter {output_file}")
 
 

@@ -1,0 +1,18 @@
+**Health Assessment for Albert Reynolds**
+
+***Patient Information:***
+- **Name:** Albert Reynolds
+- **Age:** 19 y.o.
+- **Gender:** F
+
+***Eval Summary:***
+Pt c/o underweight status. Weight: 39.8 kg; BMI: 17.6 kg/m², underweight. Vitals stable, non-smoker. Low BMI suggests further look into nutritional intake; dietary habits not noted.
+
+***Medical Hx:***
+No significant PMH or meds explaining wt concerns. Mild pain reported, may need f/u.
+
+***Recommendations:***
+Due to underweight status, recommend detailed nutritional eval to identify patterns & interventions to support health.
+
+***Conclusion:***
+Concerns warrant timely intervention w/ nutritional support. Continuous monitoring advised.

@@ -1,0 +1,21 @@
+**Clinical Note**  
+**Encounter Date:** [Insert date]  
+**MRN:** [Insert MRN]  
+**Provider:** [Insert Provider’s Name]  
+**Dept:** Dialysis  
+
+Pt: Mr. Kuhic, s/p renal dialysis.  
+
+**HPI:**  
+Underwent dialysis, 1.4 kg fluid removed. Pain level 3.0, mild discomfort during & after procedure. Epoetin Alfa 4000 UNT/ML given for anemia.
+
+**OBSERVATIONS:**  
+- Fluid Removed: 1.4 kg  
+- Pain Level: 3.0  
+- Epoetin Alfa: 4000 UNT/ML    
+
+**RECOMMENDATIONS:**  
+[Insert any recommended actions or follow-ups if required]  
+
+Signed by: [Physician’s signature or name]  
+Electronically signed: [Insert timestamp]

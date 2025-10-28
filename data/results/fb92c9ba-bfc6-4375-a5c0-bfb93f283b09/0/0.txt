@@ -1,0 +1,33 @@
+Clinical Note  
+-------------------------------------  
+Patient: Quintin Jenkins  
+Date of Visit: 01/21/2017  
+MRN: [insert MRN here]  
+Provider: [insert provider name here]  
+Dept: Pediatrics  
+
+**HPI:**  
+14 y/o male, c/o undernutrition.  
+
+**Vitals:**  
+- BP 136/84 mmHg  
+- HR 94 bpm  
+- RR 15/min  
+- Height 126.5 cm  
+- Weight 23.5 kg  
+- BMI 14.7 kg/m²  
+
+**Overall Health Eval:**  
+- Pain: 1/10  
+- Smoking: Never  
+
+**Interventions:**  
+- Admin flu vaccine.  
+- Start asthma tx w/ Fluticasone propionate & Albuterol.  
+
+**Plan -**  
+F/u to monitor growth parameters, BMI, and resp sx.  
+
+Signed by: [insert provider name here]  
+Electronically signed: 2023-10-05T12:00:00Z  
+-------------------------------------
