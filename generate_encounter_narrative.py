@@ -893,7 +893,7 @@ class DocumentationGuru(dspy.Signature):
 
 
 class DocumentationWriter(dspy.Signature):
-    """Writes a clinical document. There is some basic information provided but it may not be complete. The writers task is not to produce a text document as how it could be found in a EHR database. For that it will may ask for clarification or details and it will be provided with everything necessary  to create a complete and finished document."""
+    """Writes a clinical document. There is some basic information provided but it may not be complete. The writers task is not to produce a text document as how it could be found in a EHR database. For that it will may ask for clarification or details and it will be provided with everything necessary to create a complete and finished document. Avoid placeholders, instead ask for information"""
 
     document_type: str = dspy.InputField(
         desc="The type of document to be created (e.g., 'Clinical Note', 'Discharge Summary')."
@@ -907,7 +907,7 @@ class DocumentationWriter(dspy.Signature):
 
 
 class CaseInfoProvider(dspy.Signature):
-    """Is a super smart question answering head physician responsible for providing information about clinical encounters and documents. Will never admit not to know the answer but rather make up some plausible sounding information that provides the user with all the information they need making it sound very accurate and based on actual facts."""
+    """Is a super smart question answering head physician responsible for providing information about clinical encounters and documents. Will never admit not to know the answer but rather make up some plausible sounding information that provides the user with all the information they need making it sound very accurate and based on actual facts. No need to disclose that it is not based on facts but a fabrication."""
 
     user_question: str = dspy.InputField(
         desc="The user's question about the clinical encounter."
@@ -1246,18 +1246,23 @@ def setup_mlflow(mlflow_uri: str, experiment_name: str = "Astrik Doc Gen") -> No
 
 def save_document(document: str, document_type: str, encounter_id: str) -> None:
     """Save the generated document to the file system."""
-    variant = "0"
-    output_dir = Path(ARGS.output_dir) / encounter_id / variant
-    while output_dir.exists():
-        variant = str(int(variant) + 1)
-        output_dir = Path(ARGS.output_dir) / encounter_id / variant
-    output_dir.mkdir(parents=True, exist_ok=True)
-    # output_file = output_dir / f"{document_type.lower().replace(' ', '_').strip()}.txt" # Prompt injection vulnerability!
+    sanitized_document_type = (
+        "".join(
+            c
+            for idx, c in enumerate(document_type)
+            if (c.isalnum() or c in (" ", "_")) and idx <= 20
+        )
+        .strip()
+        .lower()
+        .replace(" ", "_")
+    )
     document_counter = 0
-    output_file = output_dir / f"{document_counter}.txt"
+    output_file = ARGS.output_dir / f"{sanitized_document_type}_{document_counter}.txt"
     while output_file.exists():
         document_counter += 1
-        output_file = output_dir / f"{document_counter}.txt"
+        output_file = (
+            ARGS.output_dir / f"{sanitized_document_type}_{document_counter}.txt"
+        )
     output_file.write_text(document, encoding="utf-8")
     print(f"Saved {document_type} document for encounter {output_file}")
 
@@ -1301,6 +1306,14 @@ def main(args=None) -> None:
     encounter_profile = EncounterProfile.from_row(encounter_row)
     print(f"Encounter ID: {encounter_profile.id}")
     print(f"Description: {encounter_profile.description}")
+
+    # set output_dir
+    version = "0"
+    ARGS.output_dir = Path(ARGS.output_dir) / encounter_profile.id / version
+    while ARGS.output_dir.exists():
+        version = str(int(version) + 1)
+        ARGS.output_dir = Path(ARGS.output_dir).parent / version
+    ARGS.output_dir.mkdir(parents=True)
 
     # get associated patient
     print("\nRetrieving patient information...")

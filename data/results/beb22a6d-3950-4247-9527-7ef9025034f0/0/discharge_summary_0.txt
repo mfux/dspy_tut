@@ -1,0 +1,44 @@
+Encounter Date: 12/13/2005  
+MRN: [Not specified]  
+Provider: [Not specified]  
+Dept: Inpatient Gen Med  
+Discharge Summary  
+--------------------------------------
+
+PATIENT: Mr. Von Haley  
+DOB: 03/11/1986  Age: 38 M
+
+REASON FOR ADMIT:  
+Eval/monitor new dx impacted molars.  Pt w/ impacted 3rd molars, no acute sx.
+
+HOSPITAL COURSE:  
+Admitted 12/13/05-12/14/05. Pt observed for dental impaction, no acute distress. Dental eval: impaction persists, no active infection, swelling, abscess, or cellulitis. No fever/constitutional sx. No labs or imaging—none indicated. No procedures performed. No meds needed. Vitals stable, PO tolerated.
+
+HOSPITAL MEDS:  
+None given—no pain or infection.
+
+LABORATORY DATA:  
+N/A
+
+PROCEDURES:  
+None.
+
+COMPLICATIONS:  
+None.
+
+CONDITION AT DC:  
+Pt in NAD. Afebrile, stable, pain-free. No infection. Eating/drinking w/o difficulty.
+
+DISCHARGE MEDS:  
+None prescribed – no indication for abx or pain meds.
+
+FOLLOW-UP/RECOMMEND:  
+- Outpt dental surg consult (planned extraction impacted molars)  
+- F/u as outpt dental provider  
+- Return if pain, swelling, fever
+
+DISPOSITION:  
+Home; stable for d/c. Printed instructions provided.
+
+--------------------------------------
+Electronically signed: 2005-12-14 16:22

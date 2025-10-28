@@ -1,8 +1,0 @@
-**VACCINATION RECORD**  
-**Pt Name:** Mrs. Cummings  
-**Vaccine:** Influenza Seasonal Injectable  
-**Date Administered:** 10/31/2019  
-**Dosage:** 0.5 mL  
-**Reactions:** No documented adverse rxns noted.
-
-This record will be stored in EHR for future ref.

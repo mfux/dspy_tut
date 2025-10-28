@@ -1,7 +1,0 @@
-**Prescription Note**  
-
-**Pt Name:** Mrs. Cummings  
-**Med:** Hydrochlorothiazide 25 mg  
-**Instructions:** Take 1x daily.  
-**Duration:** Ongoing, no endpoint specified.  
-**F/U Notes:** Regular BP monitoring to assess effectiveness & manage side effects.

@@ -1,0 +1,43 @@
+---------------------------------------------------------
+Encounter Date: [Date of Admission/Progress Note]      MRN: [Not on file]
+Provider: [Name/Signature]       Dept: General Dentistry
+
+PROGRESS NOTE
+
+Pt: Von Haley   DOB: 3/11/86    Age: 38   Ethnicity: Non-Hispanic White   Res: Brookline, MA   Marital Status: Married
+
+CC:   Impacted molars - eval & management.
+
+HPI:
+38 y/o M here for eval of impacted molars, dx prev (12/13/05). Sx at this visit not charted. Typically, pts may have oral pain, swelling, chewing/gum discomfort. Denies fever, no systemic sx per record.
+
+PMHx:   No sig med/dental hx except impacted molars. No surg hx. No chronic illness on file.
+
+Meds:   None listed.
+
+SOCIAL:
+Lives Brookline, married.   No info re tobacco, EtOH, drugs.
+
+ALLERGIES:  NKDA
+
+ROS:  Neg except as above. No fever/chills.
+
+PE:
+No specific findings on file for this visit. In general, may see jaw swell, TTP over molar area, poss trismus. No systemic abn noted.
+
+Labs/Imaging:
+No dental X-rays or labs done/reported.
+
+ASSESS/PLAN:
+ -   Impacted molars. Stable, no acute dental/sys issues on review.
+ -   Refer oral surg/dentist for further eval.
+ -   Consider dental panorex to eval impaction/position.
+ -   Monitor for signs of infection or worsening sx (pain, swell, fever).
+ -   Pt edu - hygiene, sx monitoring.
+ -   Outpt f/u for definite mgmt, poss surgical extract PRN.
+
+Pt seen & examined.
+
+-----
+Electronically signed: [2024-06-26 09:12]
+---------------------------------------------------------
