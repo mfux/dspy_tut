@@ -1,0 +1,47 @@
+Encounter Date: 12/02/1994
+MRN: __________
+Provider: [Signature on file]        Dept: Medicine
+
+---------------------------------------------------
+
+CHIEF COMPLAINT:
+Well visit. Pt c/o no acute issues.
+
+HPI:
+55 y/o WM here for routine wellness exam. Denies new sx, no CP, SOB, dizziness, fever.
+No recent illness.
+
+ROS: neg except as above.
+
+MEDS:
+New Rx: HCTZ 25 mg PO QD.
+No other meds reported.
+
+ALLERGIES: NKDA.
+
+VITALS:
+BP: mildly elevated (see HTN), others WNL.
+
+PMHx:
+HTN - dx today.
+
+PE:
+Gen: A&O x 3, NAD.
+CV: RRR, no m/r/g. BP as above.
+Resp: Lungs clr.
+Abd: Soft, NT, no masses, no HSM.
+Ext: No edema.
+Neuro: No focal deficit.
+Skin: No r/l.
+
+ASSESS/PLAN:
+1. HTN - new dx. Started HCTZ 25mg PO QD.
+2. Well, no complaints.
+- Discussed diet/Na+ reduction, exercise.
+- No labs or vaccines this visit.
+- RTC PRN or as scheduled.
+
+-----
+
+Signed by: [Signature on file]
+Electronically signed: 12/02/1994 13:46

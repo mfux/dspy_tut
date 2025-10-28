@@ -1,0 +1,68 @@
+-------------------------------------------------
+ENCOUNTER DATE: 1991-06-04      Dept: Ambulatory Med              
+MRN: [redacted]        Provider: [Clinician Name, Credentials] 
+VISIT TYPE: Annual wellness (in-person)
+Pt: Peres, C    Age: 102  F
+
+-------------------------------------------------
+
+HPI:
+Pt here for annual f/u, c/o no acute concerns. Hx persistent Afib (nonvalv), CHFpEF >3y stable, HTN, OA (knees/hands), HLD. No recent CP, SOB, palps, near-syncope, wt loss, fever. Denies dizziness, GI/GU issues, neuro changes. Walking w/ cane inside, needs assist outside. Lives w/ spouse, retired teacher, active socially, no tob/drugs, drinks wine occasionally. PMHx positive for HTN, CVD (parents, dec). S/P cholecystectomy (1957), Rt cataract (1982). No CA hx.
+
+-------------------------------------------------
+MEDS (per pt):
+- Verapamil 40mg PO BID
+- Digoxin 0.125mg PO QD
+- Warfarin 5mg PO QD
+- Acetaminophen 325mg PO PRN
+- Vit D 1000 IU PO QD
+
+ALLERGIES: NKDA
+
+-------------------------------------------------
+
+ROS: neg except stable mild knee pain, hearing loss. Denies CP, palps, SOB, PND, dizziness, syncope. Remaining ROS WNL.
+
+VITALS:
+BP 132/64      HR 78 irreg irreg
+RR 16      Temp 36.9C      O2 98% RA
+Wt 54kg (stable)
+
+PE:
+Gen: NAD, pleasant, alert, oriented x3
+HEENT: PERRLA, EOMI, dec hearing bilat, oral mucosa benign
+Neck: no JVD, no bruit
+CV: irreg irreg rhythm. S1S2 normal. No m/r/g. Pulses palpable.
+Lungs: clear. No wheeze/rales.
+Abd: soft, NT, no HSM, no masses
+Ext: no edema/clubbing/cyanosis
+Neuro: AOx3, CN grossly intact, 5/5 UE/LE, gait slow but steady
+Skin: no rash/bruising/ulcers
+MSK: mild knee crepitus, no swelling
+
+-------------------------------------------------
+ASSESS/PLAN:
+1. Afib, chronic, high CVA risk (CHA2DS2VASc≥5), on warfarin—therapeutic, no bleeding. Continue Rx, INR recheck 5d.
+2. CHFpEF stable. No changes.
+3. HTN controlled.
+4. HLD stable.
+5. OA mild (knees/hands). Continue PRN acetaminophen.
+6. Advanced age, high fxl status.
+
+Plan - 
+- Meds cont. as above
+- Monitor for AE (bleed, brady, GI)
+- Recheck INR 5d, adjust prn
+- Encourage daily ambulation, fall risk addressed, consider home safety eval
+- Labs: CBC, renal, LFTs, TSH ord
+- Annual screens (vax, DEXA, vision/hearing) next f/u
+- RTC 4wks or sooner if sx (bleed, palps, acute change)
+- 24h support line given
+
+EDUC:
+Risks/benefits of Rx and fall prevention discussed w/ pt & spouse. Both verbalize understanding.
+
+--------------------------------------------
+Electronically signed: 1991-06-04T14:28
+[Clinician Name, Credentials]
+--------------------------------------------

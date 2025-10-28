@@ -1,0 +1,31 @@
+===================================================
+PRESCRIPTION
+
+Pt: Laura Bergstrom         MRN: ___________
+DOB: 03/10/1948             Encounter Date: 03/10/2003
+
+Allergies: NKDA
+
+MEDICATION:
+Hydrochlorothiazide 25 mg tab PO qAM
+Disp: 30 tabs   Refills: 11
+
+INSTRUCTIONS:
+- Take 1 tab PO qAM (with food/milk if GI upset).
+- If missed dose, take ASAP unless close to next dose (do not double).
+- Maintain good hydration.
+- Report: dizziness, lightheadedness, weakness.
+- May cause ↑ sun sensitivity—use sunscreen/prn.
+- BP monitoring as directed.
+- F/U provider.
+- Allergic sx (rash, swelling, SOB) → call MD ASAP.
+
+----
+
+Prescriber: Meredith R. Caldwell, MD   Dept: IM
+Signature: _____________________     Date: ___________
+
+Pharmacy: Gloucester Community Pharmacy
+124 Main St. Gloucester, MA 01930
+Tel: 978-281-1234
+===================================================

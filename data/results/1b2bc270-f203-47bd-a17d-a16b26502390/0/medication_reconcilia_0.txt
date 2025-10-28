@@ -1,0 +1,37 @@
+==========================
+MEDICATION RECONCILIATION RECORD
+Encounter Date: 02/01/2019   Time: 10:30
+Pt: Jordan Elijah Matthews   DOB: 01/15/2003
+MRN: 00973215
+Dept: Peds Outpt  
+Provider: Samantha Liu, MD
+--------------------------
+
+REASON FOR VISIT:
+Well child/preventive visit. Routine vax & health maint.
+
+ALLERGIES:
+NKDA. No hx of reactions to meds/vax/foods/enviro as per pt & guardian.
+
+MED REC SUMMARY:
+No meds reported, current or prior. Pt/guardian confirm no OTC, herbal, or Rx use—none discontinued recently.
+Reviewed with pt & guardian.
+
+IMMUNIZATIONS GIVEN THIS VISIT:
+- Tdap 0.5mL IM (deltoid), single dose
+- Influenza inj (PF), 0.5mL IM (deltoid)
+- HPV quad, 0.5mL IM (deltoid), first dose of series
+- MCV4P, 0.5mL IM (deltoid), single dose
+
+No meds to reconcile, d/c, or adjust. No new meds started. Guardian understands. No other med exposure.
+
+Providers:  
+- Med rec: S. Liu, MD  
+- Vax admin: R. Donovan, RN  
+- Intake: A. Patel, MA
+
+-----
+Attestation: Above reflects complete med profile. Verified w/ pt & guardian. No meds on file or reported. Immunizations per above given today.
+
+Signed: Samantha Liu, MD
+Electronically signed: 02/01/2019 10:30

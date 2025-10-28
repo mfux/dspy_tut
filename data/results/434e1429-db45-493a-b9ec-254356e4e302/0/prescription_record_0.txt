@@ -1,0 +1,32 @@
+Encounter Date: 12/15/1994        MRN: 940221568
+Pt: Guadalupe Buckridge
+
+------------------------
+MEDICATION ORDER
+
+Hydrochlorothiazide 25mg tab po qday
+Start: 12/1994     Duration: 12 mo (thru 12/1995), f/u prn
+
+INDICATION:  HTN
+
+Allergies:  NKDA
+
+Renal fxn: WNL
+Liver fxn: WNL
+
+CURRENT MEDS:
+- Hydrochlorothiazide 25mg po qd (started 12/94)
+- No other meds on file
+
+MONITOR/FOLLOWUP:
+
+- Check lytes (Na, K), BUN, Cr at baseline, 2 wks & 1 mo then q3-6mo  
+- Pt to monitor BP at home & in clinic
+- Watch for s/sx of vol depletion, lyte abn, hypoTN at f/u
+- Annual exam, more if BP not controlled
+- LFTs annually or prn
+
+Provider: ____________________
+Dept: Internal Med   
+
+Electronically signed: 1994-12-15T14:04

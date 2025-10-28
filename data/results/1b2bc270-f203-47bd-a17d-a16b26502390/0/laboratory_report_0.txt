@@ -1,0 +1,30 @@
+LABORATORY REPORT - CBC
+----------------------------------------
+
+Specimen Date:    [06/05/2024]     
+Pt Name:   [Name]         MRN: [#]   
+Provider:  [pending]       
+Dept: Hematology   
+Specimen: peripheral venous (EDTA)
+
+    Clinical Indication:   Routine f/u
+
+-----------------------------------------------------
+CBC PANEL:
+  Hgb:        12.1 g/dL          (12.0-16.0)
+  Hct:        39.6 %             (36.0-49.0)
+  RBC:        4.2 x10^6/uL       (4.0-5.5)
+  WBC:        5.2 x10^3/uL       (4.0-11.0)
+  Plt:        400.4 x10^3/uL     (150-450)
+
+RBC INDICES:
+  MCV:    WNL   (80-98)
+  MCH:    WNL   (27-33)
+  MCHC:   WNL   (32-36)
+  RDW:    WNL   (11.5-14.5)
+
+INTERP:   CBC wnl. No abnormality.  
+Action:   No further workup. 
+--------
+Pathologist: [initials]      Lab ph#:     
+Electronically signed: 2024-06-05 14:22

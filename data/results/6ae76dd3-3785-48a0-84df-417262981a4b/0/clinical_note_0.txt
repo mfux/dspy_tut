@@ -1,0 +1,65 @@
+Encounter Date:  03/10/2003      MRN: [Not on file]      
+Provider: [Physician Name]   Dept: Gloucester Family Med
+---------------------------------------------------------
+
+REASON FOR VISIT:  wellness exam; eval & mgmt newly dx’d htn.
+
+HPI:  55F, here for routine physical & htn f/u. Reports several elevated BPs at home/past visits—ranging 142-154/88-94, asx. No HA, dizziness, CP, palps, SOB, edema or visual changes. No prior rx or formal lifestyle counseling. General health good. No other active c/o.
+
+PMHx:  HTN (recent dx).   No DM, cardiac, renal, hepatic, endocrine.
+
+SurgHx:  none.  No prior hosp.
+
+FHx:    neg early CAD, stroke, DM, renal dz in 1° relatives.
+
+SocHx:   
+- Lives alone, Gloucester MA.  
+- Single.  
+- Never smoker
+- ETOH: occas/mod
+- Illicits: denies
+- Social support adequate. No barriers.  Occup/employment: not documented.
+
+Meds:  
+- HCTZ 25 mg po qday (started today)
+- No other rx/OTC
+
+Allergies:  NKDA.
+
+ROS:  neg except as per HPI.
+
+VITALS -   BP: 148/92 (RA, seated, 5 min rest)   HR: 76 reg   RR: 14   Temp: 98.3F  
+Ht: 5'6"    Wt: 154 lbs (70 kg)   BMI: 24.9
+
+PE:
+Gen:   NAD, alert, oriented, well-appearing  
+HEENT:  NCAT, no JVD  
+Neck:   no bruit  
+CV:  RRR, no m/r/g  
+Lungs:  CTAB  
+Abd:  soft, NT, non-dist, no organomegaly, bowel sounds norm  
+Ext:  no edema/cyanosis/clubbing  
+Neuro:  CN II-XII grossly intact, no focal def  
+Skin:  W/D, no lesions/rash  
+Fundoscopic:  WNL  
+Other:  unremarkable
+
+Labs/Studies:  
+- CBC, CMP, fasting glucose, lipids - WNL  
+- UA: no prot, no blood
+
+ASSESS/PLAN
+1. HTN—essential, new dx, based on multiple elevated BP readings, no 2° cause found.
+2. Gen health good. No evidence TOD/comorbidity.
+
+Plan -
+- Start HCTZ 25 mg po daily
+- Educ: sodium restriction, diet, wt mgmt, exercise
+- Continue home BP log
+- Watch for SFX: lyte disturbance, ortho HoTN
+- F/u 4 wks: BP check, adherence, repeat labs prn
+- Routine prev care per guidelines
+- Pt ed given, q’s addressed
+
+-----------------------------------
+Signed by: [Physician Name]   Electronically signed: 03/10/2003 14:31
