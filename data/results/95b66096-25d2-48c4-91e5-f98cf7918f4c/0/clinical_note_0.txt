@@ -1,0 +1,43 @@
+Encounter Date:  07/06/2012   MRN: ########
+Dept: Urgent Care
+Provider: [Documenting Clinician Name]
+
+-----------------------------------------------------
+
+REASON FOR VISIT:
+Acute-onset a.fib - eval
+
+HPI:
+Pt is 101 y/o M c/o new palpitations, irregular heartbeat. Mild CP/SOB possible. Onset today per pt, no precipitating illness, fever, syncope. Sought urgent eval. PMHx: chronic CV dz (details today not listed), long hx hospital f/u.
+
+ROS:  Neg except as per HPI.
+
+MEDS:
+Not specified today (likely on rhythm and/or AC per usual mgmt)
+
+ALLERGIES:  Not documented.  (No NKDA listed.)
+
+PE:
+Elderly male, A&Ox3. NAD. Vital signs: irregularly irreg pulse, rate ↑ (no values doc’d).
+CV: irregularly irreg, no m/r/g, no clinical CHF.
+Lungs: CTA bilat.
+Ext: No edema.
+Other: WNL.
+
+EKG (on arrival):  a.fib confirmed
+EKG (post-procedure): NSR
+
+ASSESS/PLAN:
+Acute sx a.fib in 101 y/o M. No hf/hemodyn instability. High risk due to age, PMHx.
+Plan -
+- Cardioversion (elec.) done; NSR restored.
+- Monitor post-procedure - stable, no recurrence in obs.
+- F/u: PCP + cards for arrhythmia mgmt & AC reassessment.
+- RTC urgent care/ED if: palpitations, SOB, syncope, return of sx.
+- Med reg, further w/u: to be addressed as outpatient.
+
+-----
+
+Pt seen & examined.
+
+Electronically signed: 2012-07-06 13:27

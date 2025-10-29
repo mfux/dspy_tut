@@ -1,0 +1,48 @@
+========================================
+IMMUNIZATION ADMINISTRATION RECORD
+
+Encounter Date: 02/01/2019
+MRN: [Redacted]
+Pt Name: [Redacted]
+Dept: Peds Clinic
+Provider: [Redacted]
+----------------------------------------
+
+Immunizations Given:
+1. Tdap (Adacel®)
+    Mfr: Sanofi Pasteur
+    Lot#: C3095AA
+    0.5 mL IM, L deltoid
+    Date/time: 2/1/19 10:20 
+    Immediate rxn: none
+
+2. Flu, Quad (Fluarix®)
+    Mfr: GSK
+    Lot#: 5X29B
+    0.5 mL IM, R deltoid
+    Date/time: 2/1/19 10:25
+    Immediate rxn: none
+
+3. qHPV (Gardasil 9®)
+    Mfr: Merck
+    Lot#: L123456
+    0.5 mL IM, L thigh
+    Date/time: 2/1/19 10:35
+    Immediate rxn: none
+
+4. MCV4P (Menactra®)
+    Mfr: Sanofi Pasteur
+    Lot#: U1161AC
+    0.5 mL IM, R thigh
+    Date/time: 2/1/19 10:40
+    Immediate rxn: none
+
+-----
+Allergies: NKDA
+
+Comment: Pt s/p vax x4, w/o immediate rxn on site. Exam at end - normal.
+
+----------------------
+Signed by: [Redacted]
+Electronically signed: 2019-02-01T10:55
+========================================

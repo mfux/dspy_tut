@@ -1,0 +1,48 @@
+PROCEDURE NOTE - ELECTRICAL CARDIOVERSION
+
+Encounter Date: 2012-07-06   MRN: [ID]    Dept: Cardiology
+
+Provider: [Name, MD]    
+Signed by: [Name, MD]    Electronically signed: 2012-07-06 10:44
+
+--------------------------------------------------------
+
+PATIENT: Sanford Fritsch
+DOB: [ID]
+
+PROCEDURE: Electrical Cardioversion
+
+INDICATION: Symptomatic AFib, failed rate control, for rhythm conversion.
+
+PRE-PROCEDURE:
+Pt w/ hx AFib, presents for planned ECV. Focused CV assessment done—vitals, lytes WNL (K, Mg), renal fctn checked, coags reviewed. 12-lead ECG baseline. TTE/TEE per protocol to r/o LA thrombus. Anticoag per guideline.
+
+CONSENT:
+Risks (arrhythmia, skin burn, resp dep, stroke, etc), benefits, alternatives discussed; questions answered; informed consent obtained.
+
+SEDATION/PREP:
+Conscious sedation given IV (midazolam/propofol/etomidate), O2 per NC. Monitored cardioresp. Pads applied AP.
+
+-----
+PROCEDURE DETAILS:
+Synchronized cardioversion performed. First shock 100J, increased prn, max 3 shocks. R-on-T avoided.
+
+-----
+OUTCOME & RESPONSE:
+NSR restored, confirmed on monitor. Hemodyn stable. NAD. No acute complications (no arrhythmia, hypotension, resp dep, no skin burns).
+
+-----
+POST-PROCEDURE:
+Pt obs on tele, serial VS, ECG. No arrhythmia recurrence. Neuro intact. Anticoag continued per protocol. Site: no burns/irritation.
+
+Cardiology f/u arranged.
+
+-----
+ALLERGIES: NKDA
+
+-----
+SUMMARY:
+Pt s/p ECV for AFib → NSR, no complications. To f/u as inpatient.
+
+-----
+Pt seen & examined.

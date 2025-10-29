@@ -1,0 +1,57 @@
+Encounter Date: [not specified]      MRN: [not specified]
+Provider: [not specified]         Dept: Internal Med
+
+----------------------------------------
+
+CHIEF COMPLAINT:        
+Routine annual wellness.
+
+HPI:
+Pt is a retired teacher here for annual exam; no acute c/o. Feels well. BP in office 154/86, new dx of essential HTN made today.
+Denies CP, palps, SOB, HA, dizziness, other sx.
+
+PMHx: New dx HTN. No other chronic illness.
+PSHx: No major surg.
+Fam Hx: HTN both parents. Mother w/ Type 2 DM. No early CAD, no known CA.
+Soc Hx: Never smoker. Rare ETOH (1-2 wine/mo). Retired, lives alone. Socially active.
+
+Med Allergies: NKDA
+
+Current Meds:
+- Atenolol 50mg PO qd (started today)
+- Chlorthalidone 25mg PO qd (started today)
+- No other RX/OTC
+
+----------------------------------------
+
+ROS: neg except as in HPI.
+
+Vitals:
+BP: 154/86 pre-RX
+HR 78 reg | RR 16 | Temp 98.2F
+Ht 5'3" | Wt 154 lbs | BMI 27.3
+
+PE:
+Gen: Alert, NAD, WNL  
+CV: RRR, no m/r/g  
+Lungs: Clr  
+Abd: Soft, NT  
+Ext: No edema  
+Neuro: AOx3, CN 2-12 intact  
+Skin: Warm, dry
+
+ASSESS/PLAN:
+1) Essential HTN (new dx):  
+   - BP 154/86, asx. Fam hx +
+   - Started Atenolol 50mg + Chlorthalidone 25mg PO qd  
+   - Counsel re: adherence, dec Na, wt mgmt, activity  
+   - Home BP monitoring advised  
+   - Med SEs discussed: hypotension, electrolytes  
+   - Seek care if new/concerning sx  
+   - F/u 4 wks for BP & med check
+
+Preventive-Healthy lifestyle, no further screening needed at this time.
+
+----------------------------------------
+Electronically signed: 2024-06-23 13:22
+----------------------------------------

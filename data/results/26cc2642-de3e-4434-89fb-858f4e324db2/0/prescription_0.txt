@@ -1,0 +1,36 @@
+==================================
+PRESCRIPTION  
+Encounter Date: 12/29/1995      MRN: [N/A]
+Pt: Erika Becker    DOB: 04/05/1940 (84 yrs)
+Allergies: NKDA
+
+----------------------------------
+
+Dx: HTN
+
+Medication: Atenolol 50mg/Chlorthalidone 25mg tab
+Sig: 1 tab PO qd
+
+Qty: 1 yr supply per pharmacy
+Refills: As indicated
+
+Duration: ~1 year (12/29/95 - 1/3/97)
+
+Current Meds: same as above
+
+Instructions:
+Monitor BP. Report dizziness, hypoTN, e-lyte abnl, or other sxs PRN.
+No drug allergies document'd.
+F/u as scheduled.
+
+Address/Contact: N/A
+
+----------------------------------
+Prescriber: J. Meyers, MD
+[Address: N/A]
+
+Signature: __________________     Date: ___________
+
+Electronically signed: 1995-12-29 10:12
+
+==================================

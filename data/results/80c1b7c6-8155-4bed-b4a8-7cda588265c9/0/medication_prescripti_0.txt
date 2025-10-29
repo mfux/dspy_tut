@@ -1,0 +1,40 @@
+MEDICATION PRESCRIPTION/ORDER
+
+Encounter Date: 2024-06-18      MRN: [Redacted]      Dept: Cardiology
+Provider: [Redacted]
+
+Pt: [Name Redacted]    Age: 102
+
+Dx: Persistent AFib    Indications: rate ctrl, stroke ppx
+
+-----
+CURRENT MEDS:
+
+1. Verapamil HCl 40mg tab
+   Sig: 40mg PO TID (ongoing, planned 12mo; eval regularly)
+   Ind: rate ctrl - AFib
+   Monitoring: BP/HR at start & periodic, s/s brady, HB, hypoTN; periodic EKG
+
+2. Digoxin 0.125mg tab
+   Sig: 0.125mg PO qd (ongoing, planned 12mo; eval regularly)
+   Ind: adjunct rate ctrl AFib; consider for HF if relevant
+   Monitoring: Renal fx/e-lytes (Cr, K+) baseline & periodic, s/s tox (anorexia, N/V, confusion, vision, arrhythmia), serum dig lvl PRN, esp w/ dec renal fx
+
+3. Warfarin Na 5mg tab
+   Sig: 5mg PO qd (ongoing, planned 12mo; eval & titrate PRN)
+   Ind: Anticoag for stroke ppx in AFib
+   Monitoring: INR (goal 2-3) - initially biw until stable, then at least qmo, s/s bleeding/bruising (gum, GI, GU, CNS), rx/diet review, hepatic fx periodic
+
+-----
+ALLERGIES: NKDA
+
+-----
+NOTES:
+
+- Adv age, incr pharm sensitivity; use lowest effective dose, adj per labs.
+- Store meds safe; pt/caregiver ed re: admin, s/s complications.
+- Review all meds for interactions, esp. w/ warfarin.
+- Reassess med need & dose at least q3mo or if clinical change.
+- No known CI at this time.
+
+Electronically signed: 2024-06-18T10:52
