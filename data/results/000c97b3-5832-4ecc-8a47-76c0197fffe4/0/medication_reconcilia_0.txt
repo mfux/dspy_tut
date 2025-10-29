@@ -1,0 +1,29 @@
+======================================
+Medication Reconciliation
+
+Encounter Date:  11/17/2018
+MRN: [xxxxxxx]
+Pt: Ira Tremblay    Dept: Outpt
+Provider: [Physician’s Name, Credentials]
+
+--------------------------------------
+
+Med List (as of 11/17/18):
+
+1) Humulin 70/30 insulin inj (isophane & reg)  
+   - For DM  
+   - Status: cont; no chg
+
+2) Metformin HCl 500mg ER tab  
+   - DM mgmt  
+   - Status: cont; no chg
+
+No new meds started. No d/c or dose chg since last visit. Both DM meds to cont thru 2/16/19, eval f/u then.
+
+Allergies: NKDA  
+Allergy review complete  – no update.
+
+Med rec done w/ pt & Rx MD. List up to date; no chg to tx plan.
+
+--------------------------------------
+Electronically signed:  2018-11-17 09:42

@@ -1,0 +1,67 @@
+=========================
+OUTPATIENT CLINICAL NOTE
+
+Encounter Date: 11/17/2018     MRN: [xxxxxx]     Dept: Internal Medicine
+Provider: [Your Name/Title]
+
+Pt: Ira Tremblay      DOB: [redacted]    M >100 y/o, Black non-Hispanic
+
+--------------------------
+CHIEF COMPLAINT: 
+Diabetes & advanced CKD f/u. Chronic mgmt.
+
+HPI:
+Pt seen for routine mgmt DM2, CKD stage 4-5. F/u. S/p prior visits for same. No new c/o, denies SOB, CP, recent infection. ++multimorbidity/geriatric complexity. No acute issues reported.
+
+ALLERGIES: NKDA.
+
+PAST MED HX: 
+- CKD stage 4-5
+- DM2
+- Cardiometabolic risk factors
+- Former smoker
+
+SOCIAL: Married, Boston. Lives w/ spouse.
+
+--------------------------
+ROS: 
+neg except as noted in HPI. No fever/chills, no nausea/vomiting, no recent edema, no focal neuro sxs.
+
+PE:
+Gen: NAD, A&Ox3.
+CV: RRR, no m/r/g.
+Lungs: Clear, no r/r/w.
+Abd: soft, NT, no HSM.
+Ext: no edema.
+Neuro: non-focal.
+Skin: no lesions.
+
+Vitals: BP 121/80   HR 88  RR 15   Pain 2/10 (mild)   Ht 174.7 cm   Wt 84.9 kg   BMI 27.8
+
+--------------------------
+LABS (see also reviewed):
+Renal: eGFR 16.2 (stage 4-5 CKD), Cr 3.1. BUN/WNL. Lytes/Ca/CO2 WNL. Prot/Cr 43.1.
+Glycemic: Fasting glucose 79.2. HbA1c 2.5% (low, poss lab error vs clinical concern—repeat rec.)
+Lipids: TC 172.4, TG 120.4, LDL 68.7, HDL 79.6.
+All reviewed w/ pt.
+
+--------------------------
+ASSESS/PLAN:
+1. CKD4-5 (eGFR 16.2), stable. Monitor, aware risk progression/complications (anemia, lyte disturbance). No acute change.
+2. DM2: On Humulin 70/30 + metformin ER. Glycemic status possibly overcontrolled (A1c 2.5%), repeat A1c & assess for hypo episodes.
+3. Cardiometabolic risk: favorable lipids.
+
+Plan - 
+- Continue Humulin 70/30, metformin ER 500 mg. 
+- Ed re: hypo risk in CKD.
+- Repeat A1c, recheck labs before next f/u.
+- Monitor renal fxn, lytes, anemia markers.
+- Reinforce DM/CKD diet, healthy wt/activity prn tolerance.
+- Close OP f/u, review med safety/adherence.
+- Pt edu: dz mgmt, when to seek care, advance care planning.
+
+--------------------------
+Signature: [Your Name], [Credentials]
+Electronically signed: 11/17/2018 10:38
+
+=========================

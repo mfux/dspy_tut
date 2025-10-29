@@ -1,0 +1,36 @@
+Encounter Date: [Date]     MRN: [Medical Record Number]
+Provider: [Name, credentials]      Dept: Ambulatory Clinic
+
+------------------------------------------------------
+
+CHIEF COMPLAINT:
+IM injection
+
+HPI:
+Pt here for scheduled IM inj. No new c/o today.
+
+ALLERGIES:
+NKDA
+
+ROS: 
+Neg except as per HPI.
+
+PE: 
+Not performed - procedure only visit.
+
+------------------------------------------------------
+
+PROCEDURE/INTERVENTION:
+- IM injection given per order. 
+  Site: [e.g., L deltoid]      Time: [e.g., 10:25 AM]
+- Tolerated well, no immediate rxn.
+
+ASSESS/PLAN:
+s/p IM inj, no acute issues.  
+- Observe standard protocol; pt to report delayed sx.
+- No other interventions this visit.
+- F/u as planned.
+
+------------------------------------------------------
+
+Electronically signed: [Electronic signature date/time]

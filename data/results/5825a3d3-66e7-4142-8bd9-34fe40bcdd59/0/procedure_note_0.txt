@@ -1,0 +1,40 @@
+---------------------------------------------------
+Procedure Note - IM injection
+
+Encounter Date: [Date]         MRN: [MRN#]
+Provider: [Provider Name], [Credentials]    Dept: [Dept]
+
+---
+
+ALLERGIES: NKDA
+
+INDICATION:
+Pt here for IM injection per tx plan. Indication: [Specify med/vaccine, etc].
+
+CONSENT:
+Procedure, risks/benefits/alternatives reviewed w/ Pt. Verbal consent obtained.
+
+TECHNIQUE:
+Pt ID/verified.
+Site: [L/R deltoid, gluteal, etc]
+No skin lesion/infection at site.
+Area prepped w/ alcohol, air dry.
+Med given: [Specify drug, dose, lot#]
+Needle/syringe: [e.g. 23G 1”]
+Sterile tech used. Med drawn up, injected at 90 deg to muscle.
+Aspirated - no blood. Injected slowly.
+Needle removed, pressure x several sec. Band-aid applied.
+
+POST-INJECTION OBSERVATION:
+Pt tolerated procedure, NAD.
+No immediate c/o - no bleed, swell, allergy.
+Observed x [15min or per protocol].
+
+AFTERCARE/FU:
+Pt advised re site pain/swelling/redness, S/Sx of allergy.
+Return/f/u per protocol. Info sheet given.
+
+-----
+
+Signed by: [Provider Name], [Credentials]
+Electronically signed: [2024-06-12T14:52:00]

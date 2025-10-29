@@ -116,6 +116,13 @@ def parse_args(args=None) -> argparse.Namespace:
         action="store_true",
     )
 
+    parser.add_argument(
+        "--language",
+        help="Language for text generation. E.g. 'German', 'Flemish', 'French'",
+        type=str,
+        default="English",
+    )
+
     return parser.parse_args(args)
 
 
@@ -892,20 +899,6 @@ class DocumentationGuru(dspy.Signature):
     )
 
 
-class DocumentationWriter(dspy.Signature):
-    """Writes a clinical document. There is some basic information provided but it may not be complete. The writers task is not to produce a text document as how it could be found in a EHR database. For that it will may ask for clarification or details and it will be provided with everything necessary to create a complete and finished document. Avoid placeholders, instead ask for information"""
-
-    document_type: str = dspy.InputField(
-        desc="The type of document to be created (e.g., 'Clinical Note', 'Discharge Summary')."
-    )
-
-    description: str = dspy.InputField(desc="A brief summary of the document's content")
-
-    document: str = dspy.OutputField(
-        desc="The complete document ready to be stored in the EHR system."
-    )
-
-
 class CaseInfoProvider(dspy.Signature):
     """Is a super smart question answering head physician responsible for providing information about clinical encounters and documents. Will never admit not to know the answer but rather make up some plausible sounding information that provides the user with all the information they need making it sound very accurate and based on actual facts. No need to disclose that it is not based on facts but a fabrication."""
 
@@ -987,7 +980,7 @@ class DocumentAuthenticityRefiner(dspy.Signature):
        - document_type: E.g., 'Clinical Note', 'Progress Note', 'ED Encounter Note', 'Discharge Summary', 'Radiology Report', etc.
        - facility_style_profile (optional): Plain text containing hints like: Preferred abbreviations:, Header style:, Separator:, Timestamp format:, Section order:.
 
-    The refiner acts as a post-processor only—no new clinical content creation, only stylistic transformation for authenticity.
+    The refiner acts as a post-processor only—no new clinical content creation, only stylistic transformation for authenticity. The language will stay the same.
     """
 
     original_document: str = dspy.InputField(
@@ -995,6 +988,10 @@ class DocumentAuthenticityRefiner(dspy.Signature):
     )
     document_type: str = dspy.InputField(
         desc="Type/category of the clinical document guiding expected sections and style."
+    )
+
+    language: str = dspy.InputField(
+        desc="The language in which the document should be written."
     )
 
     realistic_document: str = dspy.OutputField(
@@ -1300,6 +1297,25 @@ def main(args=None) -> None:
     dataframes = load_synthea_data(data_dir)
     print(f"Loaded {len(dataframes)} tables")
 
+    class DocumentationWriter(dspy.Signature):
+        """Writes a clinical document in a given language based on the provided information. The document should be written as if it originates from a hospital in a country where the given language is the primary language, adhering to local clinical documentation conventions, terminology, and style. Avoid placeholders; instead, make a best guess for any missing information. The final output must be a complete document in the given language."""
+
+        document_type: str = dspy.InputField(
+            desc="The type of document to be created (e.g., 'Clinical Note', 'Discharge Summary')."
+        )
+
+        description: str = dspy.InputField(
+            desc="A brief summary of the document's content"
+        )
+
+        language: str = dspy.InputField(
+            desc="The language in which the document should be written."
+        )
+
+        document: str = dspy.OutputField(
+            desc="The complete document ready to be stored in the EHR system."
+        )
+
     # get encounter
     print("\nSelecting encounter...")
     encounter_row = get_encounter(dataframes, ARGS.encounter_id)
@@ -1443,10 +1459,13 @@ def main(args=None) -> None:
 
     # create a specialist that will provide information similar to the head physician but about other properties like format of the document
     result: list[GeneratedDocument] = []
-    doc_writer = dspy.ReAct(DocumentationWriter, tools=[ask_head_physician])
+    # doc_writer = dspy.ReAct(DocumentationWriter, tools=[ask_head_physician])
+    doc_writer = dspy.ChainOfThought(DocumentationWriter)
     for doc in documents_list:
         document = doc_writer(
-            document_type=doc["type"], description=doc["description"]
+            document_type=doc["type"],
+            description=doc["description"],
+            language=ARGS.language,
         ).document
         result.append(
             GeneratedDocument(
@@ -1462,7 +1481,9 @@ def main(args=None) -> None:
         print()
         refiner = dspy.ChainOfThought(DocumentAuthenticityRefiner)
         refined_document = refiner(
-            document_type=doc.document_type, original_document=doc.content
+            document_type=doc.document_type,
+            original_document=doc.content,
+            language=ARGS.language,
         ).realistic_document
         print(f"    Refined Content:\n{refined_document}")
         print()
