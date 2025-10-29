@@ -1,0 +1,34 @@
+-----
+Prescription Order
+
+Encounter Date: 11/17/2018          MRN: [########]         Provider: ___________________
+Dept: Endocrinology
+
+Pt: Ira Tremblay     DOB: [     ]    Sex: [    ] 
+Dx: T2DM w/ severe CKD (eGFR 16.2), advanced age
+
+Allergies: NKDA
+
+-----
+MEDICATIONS:
+
+1. Humulin 70/30 Insulin  
+   Dose: 10u SC BID (30 min pre-breakfast & dinner)  
+   Duration: 3 mos (11/17/18-2/16/19)  
+   Notes: Dose titration per BG, clinical status. Pt/caregiver instructed re injection tech & hypoglycemia sx.
+
+2. Metformin ER 500mg tab  
+   Dose: 500mg PO QD  
+   Duration: 3 mos (11/17/18-2/16/19)  
+   Caution advised - advanced renal impairment (eGFR 16.2). Monitor for GI intolerance or lactic acidosis.
+   Use per risk/benefit.  
+
+Both Rx per conservative protocol for elderly w/ CKD. D/C after 3 mos, earlier PRN adverse fx.  
+Pt/family edu provided on admin & follow-up. F/u as scheduled for DM mgmt.
+
+-----
+Prescriber:  ______________________       Date: ________________
+
+Electronically signed: 2018-11-17T13:13
+
+-----
