@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """generate_encounter_narrative.py
 
 Generate narrative summaries and clinical documents for patient encounters from Synthea EHR data.
